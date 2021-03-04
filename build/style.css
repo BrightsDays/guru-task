@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  box-sizing: border-box;
+  outline: none; }
+
+.wrap {
+  width: 600px;
+  height: 100vh;
+  max-width: 100%;
+  margin: 0 auto; }
+
+.nav {
+  width: 100%;
+  padding: 0 30px;
+  background-color: #f3f6fd; }
+  .nav__item {
+    position: relative;
+    color: #000000;
+    font-size: 16px;
+    display: inline-block;
+    list-style: none;
+    margin-right: 25px;
+    font-weight: bold;
+    padding: 25px 17px 22px 0;
+    cursor: pointer;
+    border-bottom: 3px solid transparent; }
+    .nav__item:hover {
+      color: #0968ac;
+      border-bottom: 3px solid #0968ac; }
+  .nav__number {
+    position: absolute;
+    top: 20px;
+    right: 0; }
+
+.filter {
+  padding: 35px 25px; }
+  .filter__input {
+    position: relative;
+    font-size: 16px;
+    width: 100%;
+    padding: 10px 35px;
+    border: none;
+    box-shadow: -1px 2px 8px 0px rgba(34, 60, 80, 0.2);
+    background: url("icons/search.svg") no-repeat 10px 12px; }
+
+.table {
+  display: block;
+  width: 100%;
+  font-size: 0;
+  padding: 0 6px 0 0;
+  overflow: hidden;
+  overflow-y: scroll;
+  height: 75%;
+  border-spacing: 0; }
+  .table::-webkit-scrollbar {
+    width: 9px; }
+  .table::-webkit-scrollbar-track {
+    display: none; }
+  .table::-webkit-scrollbar-thumb {
+    border-radius: 9px;
+    background: #c2c4c5; }
+  .table__left, .table__right {
+    display: inline-block;
+    width: 50%; }
+  .table__body {
+    display: table;
+    width: 100%; }
+    .table__body td {
+      font-size: 16px;
+      padding: 15px 25px;
+      border-bottom: 1px solid #c2c4c5; }
+  .table td:last-child {
+    text-align: right; }
