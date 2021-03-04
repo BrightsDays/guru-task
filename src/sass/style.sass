@@ -22,7 +22,7 @@
     &__item
         position: relative
         color: #000000
-        font-size: 16px
+        font-size: 1.6em
         display: inline-block
         list-style: none
         margin-right: 25px
@@ -45,7 +45,7 @@
 
     &__input
         position: relative
-        font-size: 16px
+        font-size: 1.6em
         width: 100%
         padding: 10px 35px
         border: none
@@ -81,9 +81,18 @@
         width: 100%
 
         td
-            font-size: 16px
+            font-size: 1.6em
             padding: 15px 25px
             border-bottom: 1px solid #c2c4c5
 
     td:last-child
         text-align: right
+
+.error
+    font-size: 3em
+    text-align: center
+
+@media screen and ( max-width: 500px )
+    .nav
+        &__item
+            font-size: 1.1em

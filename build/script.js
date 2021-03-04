@@ -2006,14 +2006,14 @@ const loadMonths = (navName, elements) => {
   for (let i = 0; i < elements.length; i++) {
     if (elements[i].is_visible && elements[i].number_list) {
       Object(_loadList__WEBPACK_IMPORTED_MODULE_0__["default"])('table__body', Object.entries(elements[i].number_list));
-      Object(_loadList__WEBPACK_IMPORTED_MODULE_0__["default"])('.filter__input', '.table__item');
+      Object(_filterInfo__WEBPACK_IMPORTED_MODULE_1__["default"])('.filter__input', '.table__item');
       break;
     }
   }
 
   for (let i = 0; i < elements.length; i++) {
-    let monthName = document.createElement('li');
-    let counter = document.createElement('p');
+    const monthName = document.createElement('li');
+    const counter = document.createElement('p');
     monthName.addEventListener('click', () => {
       document.querySelector('.table__body').innerHTML = '';
       document.querySelector('.filter__input').value = '';
@@ -2074,10 +2074,25 @@ const validate = (eventTarget, max) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_loadMonths__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/loadMonths */ "./src/js/components/loadMonths.js");
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.string.replace.js */ "./node_modules/core-js/modules/es.string.replace.js");
+/* harmony import */ var core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_string_replace_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_loadMonths__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/loadMonths */ "./src/js/components/loadMonths.js");
+
 
 window.addEventListener("DOMContentLoaded", () => {
   'use strict';
+
+  fetch("https://brightsdays.github.io/guru-task/numbers.json").then(res => res.text()).then(body => {
+    try {
+      const string = body.replace(/\,(?=\s*?[\}\]])/g, '');
+      Object(_components_loadMonths__WEBPACK_IMPORTED_MODULE_1__["default"])('.nav ul', JSON.parse(string).numbers);
+    } catch {
+      const dataError = document.createElement('p');
+      dataError.textContent = 'Data error :(';
+      dataError.classList.add('error');
+      document.querySelector('.table').appendChild(dataError);
+    }
+  });
 });
 
 /***/ })
