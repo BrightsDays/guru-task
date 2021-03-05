@@ -31,7 +31,7 @@ const calcTime = () => {
       mins = mins < 19 ? '0' + mins : mins = mins + '0';
     }
   
-    if (+hours > 12 && +hours < 18) {
+    if (+hours >= 12 && +hours < 18) {
       console.log(`${hours}:${mins}, рабочее время`);
     } else {
       console.log(`${hours}:${mins}`);
