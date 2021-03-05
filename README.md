@@ -28,7 +28,7 @@ const calcTime = () => {
       hours = '0' + hours;
     }
     if (mins.toString().length < 2) {
-      mins = mins < 10 ? '0' + mins : mins;
+      mins = '0' + mins;
     }
   
     if (+hours >= 12 && +hours < 18) {
