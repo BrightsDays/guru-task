@@ -1,11 +1,11 @@
 Имеется JSON файл numbers.json с массивами данных, где:
  
-"alias" - название месяца,
-"date_from" - дата начала месяца,
-"date_to" - дата конца месяца,
-"number_list" - список номеров для данного месяца,
-"cdate" - дата, соответствующая номеру из number_list,
-"is_visible" - статус месяца.
+* "alias" - название месяца,
+* "date_from" - дата начала месяца,
+* "date_to" - дата конца месяца,
+* "number_list" - список номеров для данного месяца,
+* "cdate" - дата, соответствующая номеру из number_list,
+* "is_visible" - статус месяца.
  
 1. Необходимо:
 - создать таблицу с двумя колонками, в одной из которых будут отображаться номера из number_list для выбранного месяца, а в соседней колонке для всех значений должна отображаться соответствующая им дата из cdate в формате ДД.ММ.ГГГГ;
@@ -15,3 +15,26 @@
 [![](https://img.shields.io/badge/-%D0%9F%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B0%20Github%20Pages-informational)](https://brightsdays.github.io/guru-task/)
 
 2. Необходимо написать функцию, которая бы выводила в консоль время часового пояса UTC. Если время больше 12:00, но меньше 18:00, то вывести в консоль дополнительную информацию об этом.
+```
+const calcTime = () => {
+    const date = new Date();
+    let hours = date.getUTCHours();
+    let mins = date.getUTCMinutes();
+
+    if (hours > 23) {
+      hours -= 24;
+    }
+    if (hours.toString().length < 2) {
+      hours = '0' + hours;
+    }
+    if (mins.toString().length < 2) {
+      mins = mins < 19 ? '0' + mins : mins = mins + '0';
+    }
+  
+    if (+hours > 12 && +hours < 18) {
+      console.log(`${hours}:${mins}, рабочее время`);
+    } else {
+      console.log(`${hours}:${mins}`);
+    }
+};
+```
